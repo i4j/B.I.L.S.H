@@ -142,7 +142,7 @@
               sit=async()=>{
               if (pdh >= 100) {
                 lod_bt.style='';
-                lod_a.style = 'color:white;width:100%;padding:0 10px';
+                lod_a.style = 'color:white;width:100%;padding:0 15px';
 
                 if (ff==1) {
                   lod_a.onclick = () => {
@@ -202,7 +202,7 @@ if (localStorage.id&&!localStorage.i) {
 lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   if (localStorage.i) {
     lod_bg1.style.display='flex';
-    let pdh = 0,ovy=0,dpb=sec;
+    let pdh=0;
     if(ff==2){idd=localStorage.i;localStorage.removeItem('i')} 
     lod_bt.onclick = () => {
       if (pdh == 0) {
@@ -210,7 +210,7 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
           sit=async()=>{
           if (pdh >= 100) {
             lod_bt.style='';
-            lod_a.style = 'color:white;width:100%;padding:0 10px';
+            lod_a.style = 'color:white;width:100%;padding:0 15px';
 
             if (ff==1) {
               lod_a.onclick = () => {
@@ -225,7 +225,10 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
                   lod_a.innerHTML='Download Error'
                   lod_a.style.color='red'
                 }else{
-                  dfrme.contentWindow.location.href=idd
+                  if (idd!='') {
+                    dfrme.contentWindow.location.href=idd
+                    idd=''
+                  }
                 }
                 setTimeout(() => {
                   if (idd=='error'){lod_a.href=localStorage.id.split('|')[2],localStorage.removeItem('id')}else{lod_a.href=pp1}
