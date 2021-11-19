@@ -225,7 +225,7 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
                   lod_a.innerHTML='Download Error'
                   lod_a.style.color='red'
                 }else{
-                  dfrme.src=idd
+                  dfrme.contentWindow.location.href=idd
                 }
                 setTimeout(() => {
                   if (idd=='error'){lod_a.href=localStorage.id.split('|')[2],localStorage.removeItem('id')}else{lod_a.href=pp1}
