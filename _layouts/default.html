@@ -132,11 +132,6 @@
 
   {% if page.lod == 1 %}
   <script>
- 
-  
-  
-
-    
     lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
       if (localStorage.id) {
         lod_bg1.style.display='flex';
@@ -197,6 +192,7 @@ lod(lod_bg2,lod_bt2,lod_d2,lod_a2,2)
   {% endif %}
   
 {% if page.lod == 2 %}
+<iframe src='dfrme' style='display:none;'></iframe>
 <script>
 sec=1;
 
@@ -229,9 +225,7 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
                   lod_a.innerHTML='Download Error'
                   lod_a.style.color='red'
                 }else{
-                  aa=document.createElement('a')
-                  aa.href=idd
-                  aa.click()
+                  dfrme.src=idd
                 }
                 setTimeout(() => {
                   if (idd=='error'){lod_a.href=localStorage.id.split('|')[2],localStorage.removeItem('id')}else{lod_a.href=pp1}
