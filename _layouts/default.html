@@ -9,6 +9,7 @@
 <script>
   pp1='/what-is-insurance-types-of-insurance-and-meaning-insurance-policy',
   pp2='/what-is-loan-how-many-types-of-loan-best-loan-service-provider',
+  dpu='http://localhost:4000/templatetoy'
   sec=1;
 
   window.onload=()=>{
@@ -203,7 +204,7 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   if (localStorage.i) {
     lod_bg1.style.display='flex';
     let pdh=0;
-    if(ff==2){idd=localStorage.i;localStorage.removeItem('i')} 
+    if(ff==2){idd=localStorage.i;localStorage.removeItem('ii')} 
     lod_bt.onclick = () => {
       if (pdh == 0) {
         lod_bt.style = 'min-width:80%';
@@ -219,21 +220,20 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
                 lod_bg1.remove()
               }
             }else{
-              lod_a.innerHTML=localStorage.id.split('|')[0]+' - Download';
+              lod_a.innerHTML=(idd!='error'?localStorage.id.split('|')[0]+' - ':'')+'Download';
               lod_a.onclick=()=>{
                 if (idd=='error') {
                   lod_a.innerHTML='Download Error'
                   lod_a.style.color='red'
+                  dfu=localStorage.id.split('|')[2]?localStorage.id.split('|')[2]:dpu,localStorage.removeItem('id')
                 }else{
                   if (idd!='') {
-                    // dfrme.contentWindow.location.href=idd
-                    // location.href=idd
-                    location.assign(idd)
+                    dfrme.src=idd
                     idd=''
                   }
                 }
                 setTimeout(() => {
-                  if (idd=='error'){lod_a.href=localStorage.id.split('|')[2],localStorage.removeItem('id')}else{lod_a.href=pp1}
+                  lod_a.href=idd=='error'?dfu:pp1;
                   lod_a.innerHTML='Retry';
                 }, 3000);
               }
