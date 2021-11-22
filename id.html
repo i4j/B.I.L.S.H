@@ -1,1 +1,9 @@
-<script>onmessage=(e)=>{console.log(e);localStorage.id=e.data}</script>
+<script>
+
+// onmessage=(e)=>{if (e.origin.replace('.','|').split('|')[1]=='mrjaz.com') {localStorage.id=e.data}}
+
+
+onmessage=e=>e.origin.replace('.','|').split('|')[1]=='mrjaz.com'&&(localStorage.id=e.data)
+
+
+</script>
