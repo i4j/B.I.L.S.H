@@ -131,66 +131,66 @@
   
   <footer><a href='/'>B.I.L.H.S.</a>&nbsp;© 2021 • All Rights&nbsp;<p id='sml'>Reserved</p>.</footer>
 
-  {% if page.lod == 1 %}
-  <script>
-    lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
-      if (localStorage.id) {
-        lod_bg1.style.display='flex';
-        let pdh=0,ovy=0,dpb=sec;
-        lod_bt.onclick = () => {
-          if (pdh == 0) {
-            lod_bt.style = 'min-width:80%';
-              sit=async()=>{
-              if (pdh >= 100) {
-                lod_bt.style='';
-                lod_a.style = 'color:white;width:100%;padding:0 15px';
+{% if page.lod == 1 %}
+<script>
+lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
+  if (localStorage.id) {
+    lod_bg1.style.display='flex';
+    let pdh=0,ovy=0,dpb=sec;
+    lod_bt.onclick = () => {
+      if (pdh == 0) {
+        lod_bt.style = 'min-width:80%';
+          sit=async()=>{
+          if (pdh >= 100) {
+            lod_bt.style='';
+            lod_a.style = 'color:white;width:100%;padding:0 15px';
 
-                if (ff==1) {
-                  lod_a.onclick = () => {
-                    lod_bg2.style.display = 'flex'
-                    lod_bt2.scrollIntoView({behavior: "smooth", block: "center"});
-                    lod_bg1.remove()
-                  }
-                }else{
-                  lod_a.href=pp2;
-                  lod_a.onclick = () => {localStorage.i=fjf}
-                }
-              } else {
-                pdh+=.125
-                lod_d.style.width=pdh+'%'
-                lod_a.style.width=pdh+'%'                
-                if (ff==2&&typeof fjf=='undefined'&&(pdh==25||pdh==50||pdh==75||pdh==100)) {
-                  sec=pdh
-                  if (pdh==100) {
-                    pdh=0
-                  }
-                  if (ovy==0) {
-                    ovy++;
-                    (async()=>{
-                      fjf=await(await fetch('https://script.google.com/macros/s/AKfycbzbWHIKxfgG3wdNZAePFgFIzNpEQVEyWIeUHowdXtTZcjzEhHrBDFayFdsNSOojkbc1/exec',{method:'POST',body:localStorage.id})).text()
-                    })()
-                  }
-                }
-                if (typeof fjf!='undefined'){
-                  sec=dpb
-                }
-                
-                setTimeout(sit,sec*1000/800);
+            if (ff) {
+              lod_a.onclick = () => {
+                lod_bg2.style.display = 'flex'
+                lod_bt2.scrollIntoView({behavior: "smooth", block: "center"});
+                lod_bg1.remove()
+              }
+            }else{
+              lod_a.href=pp2;
+              lod_a.onclick = () => {localStorage.i=fjf}
+            }
+          } else {
+            pdh+=.125
+            lod_d.style.width=pdh+'%'
+            lod_a.style.width=pdh+'%'                
+            if (!ff&&typeof fjf=='undefined'&&(pdh==25||pdh==50||pdh==75||pdh==100)) {
+              sec=pdh
+              if (pdh==100) {
+                pdh=0
+              }
+              if (ovy==0) {
+                ovy++;
+                (async()=>{
+                  fjf=await(await fetch('https://script.google.com/macros/s/AKfycbzbWHIKxfgG3wdNZAePFgFIzNpEQVEyWIeUHowdXtTZcjzEhHrBDFayFdsNSOojkbc1/exec',{method:'POST',body:localStorage.id})).text()
+                })()
               }
             }
-            sit()
+            if (typeof fjf!='undefined'){
+              sec=dpb
+            }
+            
+            setTimeout(sit,sec*1000/800);
           }
         }
-          
-      }else{
-        lod_bg.remove()
+        sit()
       }
     }
       
-lod(lod_bg1,lod_bt1,lod_d1,lod_a1,1)
-lod(lod_bg2,lod_bt2,lod_d2,lod_a2,2)
-  </script>
-  {% endif %}
+  }else{
+    lod_bg.remove()
+  }
+}
+      
+lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
+lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
+</script>
+{% endif %}
   
 {% if page.lod == 2 %}
 <iframe id='dfrme' style='display:none;'></iframe>
@@ -203,8 +203,14 @@ if (localStorage.id&&!localStorage.i) {
 lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   if (localStorage.i) {
     lod_bg1.style.display='flex';
-    let pdh=0;
-    if(ff==2){idd=localStorage.i;localStorage.removeItem('ii')} 
+
+    dc=(r)=>{i="",o=0,t="mCIq27svw3cOzHbWdM5B6PJVNpoSrY94jTf1uXyiLtUEhDxZ8FaenRKlgQ0kGA+/=";while(o<r.length)n=t.indexOf(r[o++]),e=t.indexOf(r[o++]),f=t.indexOf(r[o++]),d=t.indexOf(r[o++]),i+=String.fromCharCode(n<<2|e>>4)+String.fromCharCode((15&e)<<4|f>>2)+String.fromCharCode((3&f)<<6|d);return i}
+    
+    
+    let pdh=0,id=dc(localStorage.id).split('|');
+
+    if(!ff){idd=dc(localStorage.i);localStorage.removeItem('i')} 
+
     lod_bt.onclick = () => {
       if (pdh == 0) {
         lod_bt.style = 'min-width:80%';
@@ -213,19 +219,20 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
             lod_bt.style='';
             lod_a.style = 'color:white;width:100%;padding:0 15px';
 
-            if (ff==1) {
+            if (ff) {
               lod_a.onclick = () => {
                 lod_bg2.style.display = 'flex'
                 lod_bt2.scrollIntoView({behavior: "smooth", block: "center"});
                 lod_bg1.remove()
               }
             }else{
-              lod_a.innerHTML=(idd!='error'?localStorage.id.split('|')[0]+' - ':'')+'Download';
+
+              lod_a.innerHTML=(idd!='error'?id[0]+' - ':'')+'Download';
               lod_a.onclick=()=>{
                 if (idd=='error') {
                   lod_a.innerHTML='Download Error'
                   lod_a.style.color='red'
-                  dfu=localStorage.id.split('|')[2]?localStorage.id.split('|')[2]:dpu,localStorage.removeItem('id')
+                  dfu=id[2]?id[2]:dpu,localStorage.removeItem('id')
                 }else{
                   if (idd!='') {
                     dfrme.src=idd
@@ -257,8 +264,8 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
     lod_bg.remove()
   }
 }
-lod(lod_bg1,lod_bt1,lod_d1,lod_a1,1)
-lod(lod_bg2,lod_bt2,lod_d2,lod_a2,2)
+lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
+lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
 </script>
 {% endif %}
 </body>
