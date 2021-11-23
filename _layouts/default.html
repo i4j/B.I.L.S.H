@@ -12,10 +12,10 @@
   pp2='/what-is-loan-how-many-types-of-loan-best-loan-service-provider',
   dpu='http://localhost:4000/templatetoy'
   sec=1;
-  adc=!0
+  adc=true
   
   if(location.host.replace('.','|').split('|')[1]=='mrjaz.com'){
-    if (localStorage.hid){body.classList.remove('hid')}else{
+    if(!localStorage.hid){
       var rmk=true,inw=innerWidth;
       (dtd=()=>{
         var start = +new Date();
@@ -43,6 +43,8 @@
           body.classList.add('hid')
         }
       }
+
+      if (localStorage.hid){body.classList.remove('hid')}
 
       setTimeout(()=>hedr.scrollIntoView({behavior: "smooth", block: "center"}), 0);
       lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
