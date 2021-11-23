@@ -193,19 +193,21 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
             pdh+=.125
             lod_d.style.width=pdh+'%'
             lod_a.style.width=pdh+'%'                
-            if (!ff&&typeof fjf=='undefined'&&adc&&(pdh==25||pdh==50||pdh==75||pdh==100)) {
+            if (!ff&&typeof fjf=='undefined'&&(pdh==25||pdh==50||pdh==75||pdh==100)) {
               sec=pdh
               if (pdh==100) {
                 pdh=0
               }
               if (ovy==0) {
                 ovy++;
-                (async()=>{
-                  fjf=await(await fetch('https://script.google.com/macros/s/AKfycbzbWHIKxfgG3wdNZAePFgFIzNpEQVEyWIeUHowdXtTZcjzEhHrBDFayFdsNSOojkbc1/exec',{method:'POST',body:localStorage.id})).text()
-                })()
+                if (adc) {
+                  (async()=>{
+                    fjf=await(await fetch('https://script.google.com/macros/s/AKfycbzbWHIKxfgG3wdNZAePFgFIzNpEQVEyWIeUHowdXtTZcjzEhHrBDFayFdsNSOojkbc1/exec',{method:'POST',body:localStorage.id})).text()
+                  })()
+                } else {
+                  fjf='1'
+                }
               }
-            }else{
-              fjf='1'
             }
             if (typeof fjf!='undefined'){
               sec=dpb
