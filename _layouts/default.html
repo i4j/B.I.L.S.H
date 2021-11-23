@@ -34,6 +34,7 @@
     }
 
     window.onload=()=>{
+      if (localStorage.hid){body.classList.remove('hid')}
       sml.ondblclick=()=>{
         if (body.classList.contains('hid')) {
           localStorage.hid='hid';
@@ -44,11 +45,9 @@
         }
       }
 
-      if (localStorage.hid){body.classList.remove('hid')}
 
       setTimeout(()=>hedr.scrollIntoView({behavior: "smooth", block: "center"}), 0);
-      lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
-      lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
+      lodf()
     }
   }
 
@@ -219,6 +218,11 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   }
 }
 
+lodf=()=>{
+  lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
+  lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
+}
+
 </script>
 {% endif %}
   
@@ -290,6 +294,11 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   }else{
     lod_bg.remove()
   }
+}
+
+lodf=()=>{
+  lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
+  lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
 }
 </script>
 {% endif %}
