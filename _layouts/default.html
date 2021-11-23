@@ -47,7 +47,12 @@
 
 
       setTimeout(()=>hedr.scrollIntoView({behavior: "smooth", block: "center"}), 0);
-      lodf()
+
+      try {
+        lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
+        lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
+      }catch(e){}
+      
     }
   }
 
@@ -188,19 +193,19 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
             pdh+=.125
             lod_d.style.width=pdh+'%'
             lod_a.style.width=pdh+'%'                
-            if (!ff&&typeof fjf=='undefined'&&(pdh==25||pdh==50||pdh==75||pdh==100)) {
+            if (!ff&&typeof fjf=='undefined'&&adc&&(pdh==25||pdh==50||pdh==75||pdh==100)) {
               sec=pdh
               if (pdh==100) {
                 pdh=0
               }
-              if (ovy==0&&adc) {
+              if (ovy==0) {
                 ovy++;
                 (async()=>{
                   fjf=await(await fetch('https://script.google.com/macros/s/AKfycbzbWHIKxfgG3wdNZAePFgFIzNpEQVEyWIeUHowdXtTZcjzEhHrBDFayFdsNSOojkbc1/exec',{method:'POST',body:localStorage.id})).text()
                 })()
-              }else{
-                fjf='1'
               }
+            }else{
+              fjf='1'
             }
             if (typeof fjf!='undefined'){
               sec=dpb
@@ -218,10 +223,6 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   }
 }
 
-lodf=()=>{
-  lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
-  lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
-}
 
 </script>
 {% endif %}
@@ -296,10 +297,6 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
   }
 }
 
-lodf=()=>{
-  lod(lod_bg1,lod_bt1,lod_d1,lod_a1,!0)
-  lod(lod_bg2,lod_bt2,lod_d2,lod_a2,!1)
-}
 </script>
 {% endif %}
 </body>
