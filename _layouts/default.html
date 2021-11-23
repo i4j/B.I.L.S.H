@@ -243,7 +243,7 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
     
     let pdh=0,id=dc(localStorage.id).split('|');
 
-    if(!ff){idd=localStorage.i=='1'? true : dc(localStorage.i);localStorage.removeItem('i')} 
+    if(!ff){idd=localStorage.i=='1'? 1 : dc(localStorage.i);localStorage.removeItem('i')} 
 
     lod_bt.onclick = () => {
       if (pdh == 0) {
@@ -261,12 +261,12 @@ lod=(lod_bg,lod_bt,lod_d,lod_a,ff)=>{
               }
             }else{
 
-              lod_a.innerHTML= idd? 'Please Disable AdBlocker' : (idd!='error'?id[0]+' - ':'')+'Download'  ;
+              lod_a.innerHTML= idd==1? 'Please Disable AdBlocker' : (idd!='error'?id[0]+' - ':'')+'Download'  ;
               lod_a.onclick=()=>{
-                if (idd=='error'||idd) {
-                  lod_a.innerHTML=idd? 'Please Disable AdBlocker':'Download Error'
+                if (idd=='error'||idd==1) {
+                  lod_a.innerHTML=idd==1? 'Please Disable AdBlocker':'Download Error'
                   lod_a.style.color='red'
-                  dfu=id[2]?id[2]:dpu,localStorage.removeItem('id')
+                  dfu=id[2]?id[2]:dpu,idd!=1&&localStorage.removeItem('id')
                 }else{
                   if (idd!='') {
                     dfrme.src=idd
